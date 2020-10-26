@@ -32,6 +32,7 @@ export default function ScrollTop(props) {
     };
   
     return (
+      
       <Zoom in={trigger}>
         <div onClick={handleClick} role="presentation" className={classes.root}>
           {children}
