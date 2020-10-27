@@ -256,7 +256,7 @@ function Main(props)  {
         ></NavBar>
         <div className= {classes.Toolbar} id="back-to-top-anchor" ref={homeRef}/>
         <div className={classes.Container}>
-          <Parallax bgImage="/top.jpg" strength={1000}>
+          <Parallax bgImage={process.env.PUBLIC_URL +"/top.jpg"} strength={1000}>
             <div className={classes.TopSection}>
               <Typewriter onInit={(typewriter) => { typewriter.typeString('<span style="color:#FFC1A6"}>Hi</span>!, My name is <span style="color:#6CC2BD"}>Ignacio</span> and here is something about <span style="color:#F57D7C"}>ME</span>.') .start(); }}
                 options={{
@@ -272,7 +272,7 @@ function Main(props)  {
             <h1 className={classes.h1}>
               <span style={{color:'#6CC2BD'}}>I</span>gnacio <span style={{color:'#5A809E'}}>S</span>alazar <span style={{color:'#7C79A2'}}>W</span>illiams <span style={{color:'#F57D7C'}}>;</span>
             </h1>
-            <img src="/i.salazar.williams.jpg" alt="Ignacio Salazar Williams" className={classes.ProfilePicture}></img>
+            <img src={process.env.PUBLIC_URL +"/i.salazar.williams.jpg"} alt="Ignacio Salazar Williams" className={classes.ProfilePicture}></img>
 
             <div className={classes.Divider} />
             <div className={classes.CvDescription}>
@@ -317,7 +317,7 @@ function Main(props)  {
             </Grid>
             
           </div>
-          <Parallax bgImage="/code1.jpg" strength={1000}>
+          <Parallax bgImage={process.env.PUBLIC_URL + "/code1.jpg"} strength={1000}>
             <div className={classes.ParallaxDivider}>
             </div>
           </Parallax>
