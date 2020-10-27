@@ -40,9 +40,28 @@ export default function NavBar(props){
           fontSize: '40px',
           fontFamily: `Poppins, sans-serif`,
           marginLeft: '40px',
-          
+          '@media screen and (max-width: 1400px)' : {
+            fontSize: '30px',
+            minWidth:'300px',
+            marginLeft: '0px',
+          },
+          '@media screen and (max-width: 1000px)' : {
+            fontSize: '35px',
+            minWidth:'420px',
+            marginLeft: '0px',
+          },
+          '@media screen and (max-width: 750px)' : {
+            fontSize: '30px',
+            minWidth:'400px',
+            marginLeft: '0px',
+          },
           '@media screen and (max-width: 450px)' : {
             fontSize: '25px',
+            minWidth:'300px',
+            marginLeft: '0px',
+          },
+          '@media screen and (max-width: 320px)' : {
+            fontSize: '20px',
             minWidth:'300px',
             marginLeft: '0px',
           },
@@ -105,7 +124,7 @@ export default function NavBar(props){
               <Button className={classes.navItems} color="inherit" onClick={aboutScroll}>About</Button>
               <Button className={classes.navItems} color="inherit" onClick={coreExperticesScroll}>Core Expertices</Button>
               <Button className={classes.navItems} color="inherit" onClick={skillsScroll}>Skills</Button>
-              <Button className={classes.navItems} color="inherit" onClick={contactScroll}>Contact</Button>
+              <Button className={classes.navItems} color="inherit" onClick={contactScroll}>Follow Me</Button>
             </Toolbar>
             <Drawer
                 className={classes.drawer}
