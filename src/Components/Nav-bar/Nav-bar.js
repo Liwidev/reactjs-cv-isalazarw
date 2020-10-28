@@ -21,6 +21,8 @@ import MailIcon from '@material-ui/icons/Mail';
 const drawerWidth = 240;
 
 export default function NavBar(props){
+    const { width, contactScroll, homeScroll, coreExperticesScroll, skillsScroll, aboutScroll } = props;
+    const isSmall = width === 'xs' || width === 'sm'  ? true : false;
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
   
@@ -34,10 +36,53 @@ export default function NavBar(props){
 
     const useStyles = makeStyles(() => ({
         title: {
+          flexGrow: 6,
+          fontSize: '40px',
+          fontFamily: `Poppins, sans-serif`,
+          marginLeft: '40px',
+          '@media screen and (max-width: 1400px)' : {
+            fontSize: '30px',
+            minWidth:'300px',
+            marginLeft: '0px',
+          },
+          '@media screen and (max-width: 1000px)' : {
+            fontSize: '35px',
+            minWidth:'420px',
+            marginLeft: '0px',
+          },
+          '@media screen and (max-width: 750px)' : {
+            fontSize: '30px',
+            minWidth:'400px',
+            marginLeft: '0px',
+          },
+          '@media screen and (max-width: 450px)' : {
+            fontSize: '25px',
+            minWidth:'300px',
+            marginLeft: '0px',
+          },
+          '@media screen and (max-width: 320px)' : {
+            fontSize: '20px',
+            minWidth:'300px',
+            marginLeft: '0px',
+          },
+        },
+        navItems: {
           flexGrow: 1,
+          fontSize: '18px',
+          fontFamily: `Poppins, sans-serif`,
+          fontWeight: 'bold',
+          visibility: isSmall? 'hidden' : 'visible',
+        },
+        SidePanelButton:{
+          visibility: isSmall? 'visible' : 'hidden',
         },
         hide: {
-          display: 'none',
+          // display: 'none',
+        },
+        navBar: {
+          height: '12vh',
+          maxHeight: '100px',
+          backgroundColor: '#F57D7C',
         },
         drawer: {
             width: drawerWidth,
@@ -59,21 +104,27 @@ export default function NavBar(props){
 
     return (
         <HideOnScroll {...props}>
-          <AppBar>
-            <Toolbar>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="end"
-              onClick={handleDrawerOpen}
-              className={clsx(open && classes.hide)}
-            >
-                <MenuIcon />
-              </IconButton>
+          <AppBar >
+            <Toolbar className={classes.navBar}>
+              <div className={classes.SidePanelButton}>
+                <IconButton
+                  color="inherit"
+                  aria-label="open drawer"
+                  edge="end"
+                  onClick={handleDrawerOpen}
+                  className={clsx(open && classes.hide)}
+                >
+                  <MenuIcon />
+                </IconButton>
+              </div>
               <Typography variant="h6" className={classes.title}>
-                CV IsalazarW
+                 Ignacio Salazar Williams 
               </Typography>
-              <Button color="inherit">Login</Button>
+              <Button className={classes.navItems} color="inherit" onClick={homeScroll}>Home</Button>
+              <Button className={classes.navItems} color="inherit" onClick={aboutScroll}>About</Button>
+              <Button className={classes.navItems} color="inherit" onClick={coreExperticesScroll}>Core Expertices</Button>
+              <Button className={classes.navItems} color="inherit" onClick={skillsScroll}>Skills</Button>
+              <Button className={classes.navItems} color="inherit" onClick={contactScroll}>Follow Me</Button>
             </Toolbar>
             <Drawer
                 className={classes.drawer}
