@@ -258,7 +258,10 @@ function Main(props)  {
         <div className={classes.Container}>
           <Parallax bgImage={process.env.PUBLIC_URL +"/top.jpg"} strength={1000}>
             <div className={classes.TopSection}>
-              <Typewriter onInit={(typewriter) => { typewriter.typeString('<span style="color:#FFC1A6"}>Hi</span>!, My name is <span style="color:#6CC2BD"}>Ignacio</span> and here is something about <span style="color:#F57D7C"}>ME</span>.') .start(); }}
+              <Typewriter onInit={(typewriter) => { 
+                typewriter.typeString(`
+                  <span style="color:#FFC1A6"}>Hi</span>!, My name is <span style="color:#6CC2BD"}>Ignacio</span> and here is something about <span style="color:#F57D7C"}>ME</span>.
+                `).start(); }}
                 options={{
                   wrapperClassName: classes.TypeWriterText,
                   delay: 50,
@@ -324,7 +327,7 @@ function Main(props)  {
           <div ref={coreExperticesRef}>
           </div>
           <Parallax 
-            bgImage="/test.jpg" 
+            bgImage={process.env.PUBLIC_URL + "/test.jpg"} 
             bgImageStyle={{minHeight: '2000px'}}
             className={classes.ExperticesList}
             strength={-600}
